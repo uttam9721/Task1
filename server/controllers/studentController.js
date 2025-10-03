@@ -2,10 +2,15 @@ import { Student } from "../models/student.js";
 
 // Add new student
 export const addStudent = async (req, res) => {
+    const {name,rollNo,grades}=req.body;
   try {
-    const student = new Student(req.body);
-    await student.save();
-    res.status(201).json(student);
+    const student=Student.create({
+        name,
+        rollNo,
+        grades,
+
+    })
+    res.status(201).json({message:'Student added',student});
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -14,7 +19,7 @@ export const addStudent = async (req, res) => {
 // Get all students
 export const getStudents = async (req, res) => {
   try {
-    const students = await Student.find();
+    const students = await Student.find({});
     res.json(students);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -36,8 +41,9 @@ export const addGrade = async (req, res) => {
 
 // Delete student
 export const deleteStudent = async (req, res) => {
+    const id =req.params.id
   try {
-    await Student.findByIdAndDelete(req.params.id);
+    await Student.findByIdAndDelete(id);
     res.json({ message: "Student deleted" });
   } catch (err) {
     res.status(500).json({ error: err.message });

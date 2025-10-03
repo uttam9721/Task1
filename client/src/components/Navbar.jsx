@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="navbar bg-primary text-white px-4 py-2 d-flex justify-content-between">
-      <h3>Student Grade Management System</h3>
+      <Link to={'/'}> <h1 style={{color:'white',textDecoration:'none'}}> {`{Student}`}</h1></Link>
       <div>
         <Link className="btn btn-primary mx-1" to="/">Home</Link>
         <Link className="btn btn-primary mx-1" to="/add-student">Add Student</Link>
