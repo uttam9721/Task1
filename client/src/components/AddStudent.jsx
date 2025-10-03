@@ -9,11 +9,11 @@ const AddStudent = () => {
     e.preventDefault();
     try {
       await axios.post("http://localhost:5000/api/add-student", { name, rollNo });
-      alert("✅ Student Added Successfully!");
+      alert(" Student Added Successfully!");
       setName("");
       setRollNo("");
     } catch (error) {
-      alert("❌ Error adding student: " + error.message);
+      alert(" Error adding student: " + error.message);
     }
   };
 

@@ -15,12 +15,12 @@ const AddGrade = () => {
     e.preventDefault();
     try {
       await axios.post(`http://localhost:5000/api/add-grade/${studentId}`, { subject, grade });
-      alert("✅ Grade Added Successfully!");
+      alert("Grade Added Successfully!");
       setStudentId("");
       setSubject("");
       setGrade("");
     } catch (error) {
-      alert("❌ Error adding grade: " + error.message);
+      alert("Error adding grade: " + error.message);
     }
   };
 
